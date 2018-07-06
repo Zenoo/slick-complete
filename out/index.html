@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><h1>SlickComplete <a href="https://jsfiddle.net/Zenoo0/z5tr4a91/">(Demo)</a></h1><p><img src="https://david-dm.org/Zenoo/slick-complete.svg" alt="Dependencies"></p>
+<p>Handle your table display asynchronously</p>
+<h3>Doc</h3><ul>
+<li><strong>Installation</strong></li>
+</ul>
+<p>Simply import JQuery, those 3 packages &amp; SlickComplete into your HTML.</p>
+<pre class="prettyprint source"><code>
+&lt;link rel=&quot;stylesheet&quot; href=&quot;slick-complete.css&quot;>
+&lt;script type=&quot;text/javascript&quot; src=&quot;slick-complete.js&quot;>&lt;/script></code></pre><ul>
+<li><strong>How to use</strong></li>
+</ul>
+<p>Create a new <code>SlickComplete</code> object with a query String or an Element as the first parameter :</p>
+<pre class="prettyprint source"><code>let slickComplete = new SlickComplete('div.with[any=&quot;selector&quot;]');
+// OR
+let element = document.querySelector('li.terally[any=&quot;thing&quot;]');
+let slickComplete = new SlickComplete(element);</code></pre><ul>
+<li><strong>Options</strong></li>
+</ul>
+<pre class="prettyprint source"><code>{
+  source: false,           // URL used to fetch the data. Set to false to disable AJAX loading
+  sourceContext: {},       // Optional object to pass to the server while fetching the data
+  printButtons: true,      // Should the print buttons be displayed?
+  orderBy: 0,              // Index of the column used to order the table
+  orderSort: 'desc',       // Order direction
+  logging: false,          // Should ajaxTable use the developper console?
+  onReady: function (table, data) { },     // Runs when the ajaxTable is ready
+  beforeAjax: function (table, data) { },  // Runs before every AJAX call
+  onUpdate: function (table, data) { }     // Runs after every table update
+}</code></pre><ul>
+<li><strong>Server configuration</strong></li>
+</ul>
+<p>If you use the ajax functionality, you'll need to setup your server to correctly answer to the AJAX calls.<br>The data sent from your server should be a valid JSON like this :</p>
+<pre class="prettyprint source"><code>{
+  &quot;data&quot;:[
+    &quot;&lt;tr>&lt;td>first&lt;/td>&lt;td>second&lt;/td>&lt;td>third&lt;/td>&lt;/tr>&quot;,
+    &quot;&lt;tr>&lt;td>first 2&lt;/td>&lt;td>second 2&lt;/td>&lt;td>third 2&lt;/td>&lt;/tr>&quot;,
+    &quot;&lt;tr>&lt;td>first 3&lt;/td>&lt;td>second 3&lt;/td>&lt;td>third 3&lt;/td>&lt;/tr>&quot;
+  ],
+  &quot;total&quot;:2
+}</code></pre><p>The <code>data</code> property contains an Array of Strings representing each <code>&lt;tr&gt;</code>.<br>The <code>total</code> property contains the total amount of lines in your table.</p>
+<p>The data passed through the AJAX request looks like this</p>
+<pre class="prettyprint source"><code>{
+  page: 2,                    // The page to be displayed. Here, since we want page 2, we need the items in the range [11 - 20]
+  orderBy: 1,                 // The index of the column the table is being ordered by. (Zero-based)
+  order: &quot;asc&quot;,               // Order sort. 'asc' or 'desc'
+  search: ['','','test',''],  // The array containing the values of the search inputs
+  columns: 4,                 // The number of columns in the table
+  total: true,                // OPTIONAL: if set to TRUE, you should send the property `total` back
+  context: {                  // The object from the `sourceContext` parameter
+    test: 'test1',
+    ...
+  }
+}</code></pre><ul>
+<li><strong>Example</strong></li>
+</ul>
+<p>See this <a href="https://jsfiddle.net/Zenoo0/z5tr4a91/">JSFiddle</a> for a working example</p>
+<ul>
+<li><strong>PHP server code sample</strong></li>
+</ul>
+<p>Here is a sample of what the server-side PHP code could look like</p>
+<pre class="prettyprint source"><code>if(isset($_POST['total']) || isset($_POST['page'])){
+    $return = array();
+
+    $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
+    $search = isset($_POST['search']) ? $_POST['search'] : array_fill(0, (int)$_POST['columns'], &quot;&quot;);
+    $orderIndex = isset($_POST['orderBy']) ? $_POST['orderBy'] : 0;
+    $order = isset($_POST['order']) ? $_POST['order'] : 'desc';
+    $context = $_POST['context']
+
+    $currentData = getItems($page, $search, $orderIndex, $order, $context);  // Get your items here
+    $currentTotal = getTotalItems($search, $context);                        // Get the total number of items here
+
+    $return['data'] = $currentData;
+
+    if(isset($_POST['total']) && $_POST['total'] == 'true'){
+        $return['total'] = $currentTotal;
+    }
+
+    echo json_encode($return);
+}</code></pre><h2>Authors</h2><ul>
+<li><strong>Zenoo</strong> - <em>Initial work</em> - <a href="http://zenoo.fr">Zenoo.fr</a></li>
+</ul></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="SlickComplete.html">SlickComplete</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Jul 06 2018 10:19:02 GMT+0200 (Romance Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
