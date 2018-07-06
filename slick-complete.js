@@ -10,12 +10,18 @@ class SlickCompleteItem{
 /** SlickComplete Class used to handle the SlickComplete module */
 class SlickComplete{
 
-    //TODO: Define parameter's attributes (see JSDoc's doc)
     /**
      * Creates an instance of SlickComplete
      * and checks for invalid parameters
-     * @param {(Element|String)} target The input targeted by the SlickComplete module
-     * @param {Object} parameters       Additional optional parameters
+     * @param {(Element|String)} target           The input targeted by the SlickComplete module
+     * @param {Object} parameters                 Additional optional parameters
+     * @param {Boolean} parameters.icon           Set to `true` to enable item icons    
+     * @param {String} parameters.lang            Language to be used while displaying predictions
+     * @param {Object[]} parameters.items         Items to complete from
+     * @param {String|Number} parameters.items.id Item unique identifier
+     * @param {Object} parameters.items.name      Set this Object's keys to the languages you want to support and their values to the corresponding translation
+     * @param {String[]} parameters.items.aliases Aliases to search through for a single item
+     * @param {String} parameters.items.icon    Item's icon URL
      */
     constructor(target, parameters){
         /** @private */
