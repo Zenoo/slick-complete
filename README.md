@@ -16,11 +16,11 @@ Simply import JQuery, those 3 packages & SlickComplete into your HTML.
 ```
 * **How to use**
 
-Create a new `SlickComplete` object with a query String or an Element as the first parameter :
+Create a new [`SlickComplete`](SlickComplete.html) object with a query String or an Element as the first parameter :
 ```
-let slickComplete = new SlickComplete('div.with[any="selector"]');
+let slickComplete = new SlickComplete('div.with[any="selector"]', options);
 // OR
-let element = document.querySelector('li.terally[any="thing"]');
+let element = document.querySelector('li.terally[any="thing"]', options);
 let slickComplete = new SlickComplete(element);
 ```
 * **Options**
