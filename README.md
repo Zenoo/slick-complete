@@ -20,8 +20,8 @@ Create a new [`SlickComplete`](SlickComplete.html) object with a query String or
 ```
 let slickComplete = new SlickComplete('div.with[any="selector"]', options);
 // OR
-let element = document.querySelector('li.terally[any="thing"]', options);
-let slickComplete = new SlickComplete(element);
+let element = document.querySelector('li.terally[any="thing"]');
+let slickComplete = new SlickComplete(element, options);
 ```
 * **Options**
 
