@@ -27,17 +27,18 @@ let slickComplete = new SlickComplete(element);
 
 ```
 {
-  icon: false,             // Use an icon for your items ?
-  items: [                 // Items list
+  icon: false,                                // Use an icon for your items ?
+  items: [                                    // Items list
     {
+      id: 'yourID',                           // String or Number
       name: [
         {
-          'en': 'Test',
+          'en': 'Test',                       // 'lang': 'translatedName'
           'fr': 'Tester'
         }
       ]
-      aliases: ['Test2','Test3'],
-      icon: 'https://website.com/iconurl.jpg'
+      aliases: ['Test2','Test3'],             // Name aliases
+      icon: 'https://website.com/iconurl.jpg' // Icon URL
     },
     ...
   ]

@@ -15,7 +15,7 @@ class SlickComplete{
      * Creates an instance of SlickComplete
      * and checks for invalid parameters
      * @param {(Element|String)} target The input targeted by the SlickComplete module
-     * @param {Object} parameters Additional optional parameters
+     * @param {Object} parameters       Additional optional parameters
      */
     constructor(target, parameters){
         /** @private */
@@ -71,6 +71,7 @@ class SlickComplete{
     /**
      * Adds a callback to be used when the user selects an item
      * @param {Function} callback Function to call after the user's selection
+     * @returns {SlickComplete}   The current {@link SlickComplete}
      */
     onSelect(callback){
         this._onSelect.push(callback);
@@ -79,30 +80,52 @@ class SlickComplete{
 
     /**
      * Removes every callback previously added with {@link SlickComplete#onSelect}
+     * @returns {SlickComplete} The current {@link SlickComplete}
      */
     offSelect(){
         this._onSelect = [];
         return this;
     }
 
+    /**
+     * Adds a callback to be used when a precition is displayed
+     * @param {Function} callback Function to call after a prediction
+     * @returns {SlickComplete} The current {@link SlickComplete}
+     */
     onPredict(callback){
         this._onPredict.push(callback);
         return this;
     }
 
+    /**
+     * Removes every callback previously added with {@link SlickComplete#onPredict}
+     * @returns {SlickComplete} The current {@link SlickComplete}
+     */
     offPredict(){
         this._onPredict = [];
         return this;
     }
 
+    /**
+     * Refreshes the input's display
+     * @returns {SlickComplete} The current {@link SlickComplete}
+     */
     refresh(){
         return this;
     }
 
+    /**
+     * Manually select an item
+     * @param {Object} item     The item to select
+     * @returns {SlickComplete} The current {@link SlickComplete}
+     */
     select(item){
         return this;
     }
 
+    /**
+     * Removes any SlickComplete mutation from the DOM
+     */
     destroy(){
         this._wrapper.parentNode.insertBefore(this._input, this._wrapper);
         this._wrapper.remove();
