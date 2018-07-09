@@ -48,6 +48,8 @@ class SlickComplete{
         /** @private */
         this._parameters = parameters;
 
+        this.value = '';
+
         if(typeof this._parameters.lang === 'undefined') this._parameters.lang = 'en';
         if(typeof this._parameters.icon === 'undefined') this._parameters.icon = false;
 
@@ -136,6 +138,7 @@ class SlickComplete{
             if(this._prediction.getAttribute('data-item-id').length){
                 this._input.value = this._prediction.value;
                 this._input.blur();
+                this.value = this._prediction.getAttribute('data-item-id');
 
                 //onSelect callbacks
                 for(let selection of this._onSelect) selection.call(this,this._parameters.items.find(e => e.id == this._prediction.getAttribute('data-item-id')));
