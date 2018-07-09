@@ -7,7 +7,7 @@
     "prediction",
     "input"
   ],
-  "version": "1.0.5",
+  "version": "1.0.4",
   "author": {
     "name": "Zenoo",
     "url": "https://github.com/Zenoo"
@@ -25,7 +25,7 @@
     }
   ],
   "bugs": "https://github.com/Zenoo/slick-complete/issues",
-  "homepage": "https://zenoo.github.io/slick-complete/",
+  "homepage": "https://github.com/Zenoo/slick-complete",
   "docs": "https://github.com/Zenoo/slick-complete#readme",
   "download": "https://github.com/Zenoo/slick-complete/archive/master.zip"
 }
