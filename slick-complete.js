@@ -111,8 +111,9 @@ class SlickComplete{
             if(this._input.value.length){
                 let closestMatch = this.find(this._input.value);
                 if(closestMatch){
-                    if(closestMatch.text != closestMatch.name) this._prediction.value = closestMatch.text + ' (' + closestMatch.name + ')';
+                    if(closestMatch.text != closestMatch.name.toLowerCase()) this._prediction.value = closestMatch.text + ' (' + closestMatch.name + ')';
                     else this._prediction.value = closestMatch.text;
+                    this._input.value = this._input.value.toLowerCase();
                     this._prediction.setAttribute('data-item-id', closestMatch.id);
                     if(this._parameters.icon) this._icon.innerHTML = '<image xlink:href="'+closestMatch.icon+'"/>';
 
