@@ -114,7 +114,10 @@ class SlickComplete{
                     if(closestMatch.text != closestMatch.name) this._prediction.value = closestMatch.text + ' (' + closestMatch.name + ')';
                     else this._prediction.value = closestMatch.text;
                     this._prediction.setAttribute('data-item-id', closestMatch.id);
-                    if(this._parameters.icon) this._icon.innerHTML = '<image xlink:href="'+closestMatch.icon+'"/>'
+                    if(this._parameters.icon) this._icon.innerHTML = '<image xlink:href="'+closestMatch.icon+'"/>';
+
+                    //onPredict callbacks
+                    for(let prediction of this._onPredict) prediction.call(this,this._input.value,this._parameters.items.find(e => e.id == closestMatch.id));
                 }else{
                     this._prediction.value = this._input.value;
                     this._prediction.setAttribute('data-item-id', '');
@@ -134,7 +137,7 @@ class SlickComplete{
                 this._input.blur();
 
                 //onSelect callbacks
-                for(let selection of this._onSelect) selection.call(this,'a','b');
+                for(let selection of this._onSelect) selection.call(this,this._parameters.items.find(e => e.id == this._prediction.getAttribute('data-item-id')));
             }
         }
 
@@ -180,8 +183,16 @@ class SlickComplete{
     }
 
     /**
+     * Function called after a selection.
+     * Using <code>this</code> inside it will return the current {@link SlickComplete}
+     *
+     * @callback onSelectCallback
+     * @param {SlickCompleteItem} item The selected item
+     */
+
+    /**
      * Adds a callback to be used when the user selects an item
-     * @param {Function} callback Function to call after the user's selection
+     * @param {onSelectCallback} callback Function to call after the user's selection
      * @returns {SlickComplete}   The current {@link SlickComplete}
      */
     onSelect(callback){
@@ -199,8 +210,17 @@ class SlickComplete{
     }
 
     /**
+     * Function called after a selection.
+     * Using <code>this</code> inside it will return the current {@link SlickComplete}
+     *
+     * @callback onPredictCallback
+     * @param {String} value The user's input
+     * @param {SlickCompleteItem} item The predicted item
+     */
+
+    /**
      * Adds a callback to be used when a precition is displayed
-     * @param {Function} callback Function to call after a prediction
+     * @param {onPredictCallback} callback Function to call after a prediction
      * @returns {SlickComplete} The current {@link SlickComplete}
      */
     onPredict(callback){
@@ -222,7 +242,8 @@ class SlickComplete{
      * @returns {SlickComplete} The current {@link SlickComplete}
      */
     refresh(){
-        //TODO
+        let event = new CustomEvent("input");
+        this._input.dispatchEvent(event);
         return this;
     }
 
@@ -232,7 +253,17 @@ class SlickComplete{
      * @returns {SlickComplete} The current {@link SlickComplete}
      */
     select(itemId){
-        //TODO
+        let item = this._parameters.items.find(e => e.id == itemId);
+
+        this._prediction.value = item.name[this._parameters.lang];
+        this._input.value = item.name[this._parameters.lang];
+        this._prediction.setAttribute('data-item-id', item.id);
+        if(this._parameters.icon) this._icon.innerHTML = '<image xlink:href="'+item.icon+'"/>';
+        this._input.blur();
+
+        //onSelect callbacks
+        for(let selection of this._onSelect) selection.call(this,item);
+        
         return this;
     }
 

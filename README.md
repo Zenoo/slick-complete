@@ -2,7 +2,7 @@
 
 ![Dependencies](https://david-dm.org/Zenoo/slick-complete.svg)
 
-Handle your table display asynchronously
+Autocomplete your inputs.
 
 ### Doc
 
