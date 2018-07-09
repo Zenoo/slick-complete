@@ -16,7 +16,7 @@ Simply import SlickComplete into your HTML.
 ```
 * **How to use**
 
-Create a new [`SlickComplete`](SlickComplete.html) object with a query String or an Element as the first parameter :
+Create a new [`SlickComplete`](https://zenoo.github.io/slick-complete/SlickComplete.html) object with a query String or an Element as the first parameter :
 ```
 let slickComplete = new SlickComplete('div.with[any="selector"]', options);
 // OR
