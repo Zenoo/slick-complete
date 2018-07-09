@@ -8,7 +8,7 @@ Autocomplete your inputs.
 
 * **Installation**
 
-Simply import JQuery, those 3 packages & SlickComplete into your HTML.
+Simply import SlickComplete into your HTML.
 ```
 
 <link rel="stylesheet" href="slick-complete.css">
