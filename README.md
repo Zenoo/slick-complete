@@ -43,6 +43,9 @@ let slickComplete = new SlickComplete(element, options);
   ]
 }
 ```
+* **Methods**
+
+See the [documentation](https://zenoo.github.io/slick-complete/SlickComplete.html) for the method definitions.  
 
 * **Example**
 
