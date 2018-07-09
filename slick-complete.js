@@ -1,4 +1,13 @@
+/** SlickCompleteItem Class used to handle the SlickComplete module's predictions */
 class SlickCompleteItem{
+
+    /**
+     * Creates an instance of SlickCompleteItem
+     * @param {String|Number} id Item's ID
+     * @param {String} text      Text matching the user's input
+     * @param {String} name      Item's locale name
+     * @param {String} icon      Item's icon URL
+     */
     constructor(id,text,name,icon){
         this.id = id;
         this.text = text;
