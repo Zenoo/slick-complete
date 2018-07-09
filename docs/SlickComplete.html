@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>SlickComplete<span class="signature">(target, parameters)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>SlickComplete<span class="signature">(target, parameters<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h2>
         
             <div class="class-description">SlickComplete Class used to handle the SlickComplete module</div>
         
@@ -45,7 +45,7 @@
     
 
     
-    <h4 class="name" id="SlickComplete"><span class="type-signature"></span>new SlickComplete<span class="signature">(target, parameters)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="SlickComplete"><span class="type-signature"></span>new SlickComplete<span class="signature">(target, parameters<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
     
 
     
@@ -77,6 +77,8 @@
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
         
 
@@ -105,6 +107,14 @@
             </td>
 
             
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
 
             
 
@@ -128,6 +138,16 @@
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
 
             
 
@@ -145,7 +165,11 @@
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
+        
+        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -170,7 +194,23 @@
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
             
 
             <td class="description last">Set to `true` to enable item icons</td>
@@ -193,7 +233,23 @@
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    en
+                
+                </td>
             
 
             <td class="description last">Language to be used while displaying predictions</td>
@@ -216,7 +272,19 @@
             </td>
 
             
+                <td class="attributes">
+                
 
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
             
 
             <td class="description last">Items to complete from
@@ -494,7 +562,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="slick-complete.js.html">slick-complete.js</a>, <a href="slick-complete.js.html#line135">line 135</a>
+        <a href="slick-complete.js.html">slick-complete.js</a>, <a href="slick-complete.js.html#line252">line 252</a>
     </li></ul></dd>
     
 
@@ -517,6 +585,163 @@
 
 
 
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="find"><span class="type-signature"></span>find<span class="signature">(value)</span><span class="type-signature"> &rarr; {SlickCompleteItem}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Finds the matching item for the user's query
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">String to search</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="slick-complete.js.html">slick-complete.js</a>, <a href="slick-complete.js.html#line157">line 157</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    The matching item
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">SlickCompleteItem</span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 
@@ -580,7 +805,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="slick-complete.js.html">slick-complete.js</a>, <a href="slick-complete.js.html#line110">line 110</a>
+        <a href="slick-complete.js.html">slick-complete.js</a>, <a href="slick-complete.js.html#line206">line 206</a>
     </li></ul></dd>
     
 
@@ -688,7 +913,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="slick-complete.js.html">slick-complete.js</a>, <a href="slick-complete.js.html#line91">line 91</a>
+        <a href="slick-complete.js.html">slick-complete.js</a>, <a href="slick-complete.js.html#line187">line 187</a>
     </li></ul></dd>
     
 
@@ -845,7 +1070,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="slick-complete.js.html">slick-complete.js</a>, <a href="slick-complete.js.html#line101">line 101</a>
+        <a href="slick-complete.js.html">slick-complete.js</a>, <a href="slick-complete.js.html#line197">line 197</a>
     </li></ul></dd>
     
 
@@ -1002,7 +1227,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="slick-complete.js.html">slick-complete.js</a>, <a href="slick-complete.js.html#line82">line 82</a>
+        <a href="slick-complete.js.html">slick-complete.js</a>, <a href="slick-complete.js.html#line178">line 178</a>
     </li></ul></dd>
     
 
@@ -1110,7 +1335,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="slick-complete.js.html">slick-complete.js</a>, <a href="slick-complete.js.html#line119">line 119</a>
+        <a href="slick-complete.js.html">slick-complete.js</a>, <a href="slick-complete.js.html#line215">line 215</a>
     </li></ul></dd>
     
 
@@ -1166,7 +1391,7 @@
     
 
     
-    <h4 class="name" id="select"><span class="type-signature"></span>select<span class="signature">(item)</span><span class="type-signature"> &rarr; {<a href="SlickComplete.html">SlickComplete</a>}</span></h4>
+    <h4 class="name" id="select"><span class="type-signature"></span>select<span class="signature">(itemId)</span><span class="type-signature"> &rarr; {<a href="SlickComplete.html">SlickComplete</a>}</span></h4>
     
 
     
@@ -1210,7 +1435,7 @@
 
         <tr>
             
-                <td class="name"><code>item</code></td>
+                <td class="name"><code>itemId</code></td>
             
 
             <td class="type">
@@ -1267,7 +1492,285 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="slick-complete.js.html">slick-complete.js</a>, <a href="slick-complete.js.html#line128">line 128</a>
+        <a href="slick-complete.js.html">slick-complete.js</a>, <a href="slick-complete.js.html#line225">line 225</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    The current <a href="SlickComplete.html">SlickComplete</a>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="SlickComplete.html">SlickComplete</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="setItems"><span class="type-signature"></span>setItems<span class="signature">(items)</span><span class="type-signature"> &rarr; {<a href="SlickComplete.html">SlickComplete</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Set the items to search through
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>items</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Object></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Items to complete from
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Item unique identifier</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Set this Object's keys to the languages you want to support and their values to the corresponding translation</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>aliases</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;String></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Aliases to search through for a single item</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>icon</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Item's icon URL</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="slick-complete.js.html">slick-complete.js</a>, <a href="slick-complete.js.html#line239">line 239</a>
     </li></ul></dd>
     
 
@@ -1339,7 +1842,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Jul 06 2018 11:47:56 GMT+0200 (Romance Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Jul 09 2018 11:59:25 GMT+0200 (Romance Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>

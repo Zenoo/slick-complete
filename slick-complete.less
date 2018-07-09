@@ -1,19 +1,110 @@
 .slick-complete{
     position: relative;
 
-    .slick-complete-prediction{
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        color: fade(black,80%);
+    .slick-complete-border{
+        display: inline-block;
+        border: 1px solid #a9a9a9;
+        border-radius: 5px;
+
+        .slick-complete-prediction{
+            position: absolute;
+            z-index: 1;
+            color: fade(black,60%);
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: transparent;
+        }
+    
+        .slick-complete-input{
+            position: relative;
+            background: none;
+            z-index: 2;
+            color: black;
+            padding: 10px;
+            vertical-align: top;
+            border: none;
+            background: transparent;
+        }
+    
+        .slick-complete-validate{
+            position: relative;
+            display: inline-block;
+            height: 35px;
+            width: 36px;
+            border-left: 0;
+            text-align: center;
+            cursor: pointer;
+            vertical-align: top;
+            border-left: 1px solid #a9a9a9;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+    
+            svg{
+                display: inline-block;
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+                max-width: 60%;
+                max-height: 60%;
+                height: auto;
+                width: auto;
+            }
+    
+            &:hover{
+                box-shadow: inset 0 0 10px grey;
+            }
+        }
     }
 
-    .slick-complete-input{
-        position: relative;
-        background: none;
-        border: 2px solid transparent;
-        z-index: 2;
-        color: black;
+    &.focused{
+        .slick-complete-border{
+            border: 1px solid #4D90FE;
+            box-shadow: inset 0 0 10px grey;
+        }
+
+        input:focus{
+            outline: none;
+        }
+    }
+
+    &.slick-complete-icon-enabled{
+        .slick-complete-border{
+            .slick-complete-icon{
+                position: relative;
+                display: inline-block;
+                height: 35px;
+                width: 36px;
+                border-right: 0;
+                text-align: center;
+        
+                svg{
+                    display: inline-block;
+                    position: relative;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    max-width: 70%;
+                    max-height: 70%;
+                    height: auto;
+                    width: auto;
+
+                    image{
+                        max-width: 100%;
+                        max-height: 100%;
+                        height: auto;
+                        width: 100%;
+                    }
+                }
+            }
+    
+            .slick-complete-prediction{
+                left: 37px;
+                padding-left: 5px;
+            }
+    
+            .slick-complete-input{
+                padding-left: 5px;
+            }
+        }
     }
 }
