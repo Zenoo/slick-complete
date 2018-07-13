@@ -3,10 +3,10 @@ class SlickCompleteItem{
 
     /**
      * Creates an instance of SlickCompleteItem
-     * @param {String|Number} id Item's ID
-     * @param {String} text      Text matching the user's input
-     * @param {String} name      Item's locale name
-     * @param {String} icon      Item's icon URL
+     * @param {String|Number} id   Item's ID
+     * @param {String}        text Text matching the user's input
+     * @param {String}        name Item's locale name
+     * @param {String}        icon Item's icon URL
      */
     constructor(id,text,name,icon){
         this.id = id;
@@ -22,17 +22,17 @@ class SlickComplete{
     /**
      * Creates an instance of SlickComplete
      * and checks for invalid parameters
-     * @param {(Element|String)} target           The input targeted by the SlickComplete module
-     * @param {Object} [parameters]               Additional optional parameters
-     * @param {Boolean} [parameters.icon=false]   Set to `true` to enable item icons    
-     * @param {String} [parameters.lang=en]       Language to be used while displaying predictions
-     * @param {Object[]} parameters.items         Items to complete from
-     * @param {String|Number} parameters.items.id Item unique identifier
-     * @param {Object} parameters.items.name      Set this Object's keys to the languages you want to support and their values to the corresponding translation
-     * @param {String[]} parameters.items.aliases Aliases to search through for a single item
-     * @param {String} parameters.items.icon      Item's icon URL
+     * @param {(Element|String)} target                   The input targeted by the SlickComplete module
+     * @param {Object}           [parameters]             Additional optional parameters
+     * @param {Boolean}          [parameters.icon=false]  Set to `true` to enable item icons    
+     * @param {String}           [parameters.lang=en]     Language to be used while displaying predictions
+     * @param {Object[]}         parameters.items         Items to complete from
+     * @param {String|Number}    parameters.items.id      Item unique identifier
+     * @param {Object}           parameters.items.name    Set this Object's keys to the languages you want to support and their values to the corresponding translation
+     * @param {String[]}         parameters.items.aliases Aliases to search through for a single item
+     * @param {String}           parameters.items.icon    Item's icon URL
      */
-    constructor(target, parameters = {icon: false, lang: 'en'}){
+    constructor(target, parameters = {icon: false, lang: 'en', items: []}){
         /** @private */
         this._input = target instanceof Element ? target : document.querySelector(target);
 
@@ -48,6 +48,7 @@ class SlickComplete{
         /** @private */
         this._parameters = parameters;
 
+        /** @type {String|Number} The currently selected item */
         this.value = '';
 
         if(typeof this._parameters.lang === 'undefined') this._parameters.lang = 'en';
@@ -116,7 +117,7 @@ class SlickComplete{
                     if(closestMatch.text != closestMatch.name.toLowerCase()) this._prediction.value = closestMatch.text + ' (' + closestMatch.name + ')';
                     else this._prediction.value = closestMatch.text;
                     this._input.value = this._input.value.toLowerCase();
-                    this._prediction.setAttribute('data-item-id', closestMatch.id);
+                    this._prediction.setAttribute('data-item-id', ''+closestMatch.id);
                     if(this._parameters.icon) this._icon.innerHTML = '<image xlink:href="'+closestMatch.icon+'"/>';
 
                     //onPredict callbacks
@@ -218,8 +219,8 @@ class SlickComplete{
      * Using <code>this</code> inside it will return the current {@link SlickComplete}
      *
      * @callback onPredictCallback
-     * @param {String} value The user's input
-     * @param {SlickCompleteItem} item The predicted item
+     * @param {String}            value The user's input
+     * @param {SlickCompleteItem} item  The predicted item
      */
 
     /**
@@ -273,12 +274,12 @@ class SlickComplete{
 
     /**
      * Set the items to search through
-     * @param {Object[]} items         Items to complete from
-     * @param {String|Number} items.id Item unique identifier
-     * @param {Object} items.name      Set this Object's keys to the languages you want to support and their values to the corresponding translation
-     * @param {String[]} items.aliases Aliases to search through for a single item
-     * @param {String} items.icon      Item's icon URL
-     * @returns {SlickComplete}        The current {@link SlickComplete}
+     * @param {Object[]}      items         Items to complete from
+     * @param {String|Number} items.id      Item unique identifier
+     * @param {Object}        items.name    Set this Object's keys to the languages you want to support and their values to the corresponding translation
+     * @param {String[]}      items.aliases Aliases to search through for a single item
+     * @param {String}        items.icon    Item's icon URL
+     * @returns {SlickComplete}             The current {@link SlickComplete}
      */
     setItems(items){
         this._parameters.items = items.map(item => {
