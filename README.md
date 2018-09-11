@@ -11,8 +11,8 @@ Autocomplete your inputs.
 Simply import SlickComplete into your HTML.
 ```
 
-<link rel="stylesheet" href="slick-complete.css">
-<script type="text/javascript" src="slick-complete.js"></script>
+<link rel="stylesheet" href="slick-complete.min.css">
+<script type="text/javascript" src="slick-complete.min.js"></script>
 ```
 * **How to use**
 
