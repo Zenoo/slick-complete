@@ -8,6 +8,7 @@
     "input"
   ],
   "version": "1.0.7",
+  "main": "slick-complete.js",
   "author": {
     "name": "Zenoo",
     "url": "https://github.com/Zenoo"
